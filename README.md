@@ -1,12 +1,14 @@
-AI-Assisted Coding Tutorial
+# AI-Assisted Coding Tutorial
 
 This tutorial introduces a basic AI-assisted coding workflow using:
 
-• Cursor — code editor and AI agent
-• Git — version control on your computer
-• GitHub — hosting and sharing Git repositories
-• GitHub CLI (gh) — GitHub authentication and command-line tools
-• Agent Skills — reusable instructions for AI agents
+- **Cursor** — code editor and AI agent
+- **Git** — version control on your computer
+- **GitHub** — hosting and sharing Git repositories
+- **GitHub CLI (`gh`)** — GitHub authentication and command-line tools
+- **Agent Skills** — reusable instructions for AI agents
+
+## What you will learn
 
 By the end of the tutorial, you should be able to:
 
@@ -18,74 +20,100 @@ By the end of the tutorial, you should be able to:
 6. Commit and push your changes to GitHub
 7. Use an Agent Skill
 
-────────
+## Contents
 
-1. Create a GitHub Account
+- [AI-Assisted Coding Tutorial](#ai-assisted-coding-tutorial)
+  - [What you will learn](#what-you-will-learn)
+  - [Contents](#contents)
+  - [1. Create a GitHub Account](#1-create-a-github-account)
+  - [2. Install the Required Software](#2-install-the-required-software)
+    - [macOS Setup](#macos-setup)
+      - [Step 1 — Install Cursor](#step-1--install-cursor)
+      - [Step 2 — Open Terminal](#step-2--open-terminal)
+      - [Step 3 — Install Git](#step-3--install-git)
+      - [Step 4 — Install Homebrew](#step-4--install-homebrew)
+      - [Step 5 — Install GitHub CLI](#step-5--install-github-cli)
+    - [Windows Setup](#windows-setup)
+      - [Step 1 — Install Cursor](#step-1--install-cursor-1)
+      - [Step 2 — Open PowerShell](#step-2--open-powershell)
+      - [Step 3 — Check Windows Package Manager](#step-3--check-windows-package-manager)
+      - [Step 4 — Install Git](#step-4--install-git)
+      - [Step 5 — Install GitHub CLI](#step-5--install-github-cli-1)
+  - [3. Configure Git](#3-configure-git)
+  - [4. Connect Your Computer to GitHub](#4-connect-your-computer-to-github)
+    - [Check your login](#check-your-login)
+  - [5. Create Your Own Tutorial Repository](#5-create-your-own-tutorial-repository)
+  - [6. Clone the Repository to Your Computer](#6-clone-the-repository-to-your-computer)
+    - [Choose where to store your projects](#choose-where-to-store-your-projects)
+    - [Clone](#clone)
+    - [Check that Git is working](#check-that-git-is-working)
+  - [7. Open the Project in Cursor](#7-open-the-project-in-cursor)
+  - [8. Understand the Project with AI](#8-understand-the-project-with-ai)
+  - [9. Run the Existing Program](#9-run-the-existing-program)
+  - [10. Task 1 — Ask the AI to Modify the Code](#10-task-1--ask-the-ai-to-modify-the-code)
+  - [11. Review the AI’s Changes](#11-review-the-ais-changes)
+  - [12. Save the Change with Git](#12-save-the-change-with-git)
+  - [13. Push the Change to GitHub](#13-push-the-change-to-github)
+  - [14. Task 2 — Use an Agent Skill](#14-task-2--use-an-agent-skill)
+    - [Try the skill](#try-the-skill)
+  - [15. Optional Task — Let AI Implement Its Suggestion](#15-optional-task--let-ai-implement-its-suggestion)
+  - [The Workflow to Remember](#the-workflow-to-remember)
+  - [Quick Reference](#quick-reference)
+  - [Troubleshooting](#troubleshooting)
+    - [`git: command not found`](#git-command-not-found)
+    - [`gh: command not found`](#gh-command-not-found)
+    - [`brew: command not found` on macOS](#brew-command-not-found-on-macos)
+    - [GitHub login is not working](#github-login-is-not-working)
+    - [`python: command not found`](#python-command-not-found)
+    - [I cannot access the course repository](#i-cannot-access-the-course-repository)
+  - [After the Tutorial](#after-the-tutorial)
+
+---
+
+## 1. Create a GitHub Account
 
 If you do not already have a GitHub account:
 
 1. Go to [https://github.com](https://github.com)
-2. Click Sign up
+2. Click **Sign up**
 3. Create an account
 4. Verify your email address
 5. Remember your GitHub username
 
 If you already have an account, simply make sure you can log in.
 
-────────
+---
 
-1. Install the Required Software
+## 2. Install the Required Software
 
 You will need:
 
-• Cursor
-• Git
-• GitHub CLI (gh)
+- Cursor
+- Git
+- GitHub CLI (`gh`)
 
-The setup is slightly different on macOS and Windows.
+The setup is slightly different on macOS and Windows. Follow only the section for your operating system.
 
-────────
+### macOS Setup
 
-macOS Setup
+#### Step 1 — Install Cursor
 
-Step 1 — Install Cursor
+Go to [https://cursor.com/download](https://cursor.com/download) and download the macOS version.
 
-Go to:
-
-[https://cursor.com/download](https://cursor.com/download)
-
-Download the macOS version.
-
-If you are unsure which version to choose, the Universal version should work.
+If you are unsure which version to choose, the **Universal** version should work.
 
 After downloading:
 
-1. Open the .dmg file
+1. Open the `.dmg` file
 2. Drag Cursor into the Applications folder
 3. Open Cursor
 4. Sign in when prompted
 
-────────
+#### Step 2 — Open Terminal
 
-Step 2 — Open Terminal
+Press `Command (⌘) + Space`, search for **Terminal**, and open it.
 
-Press:
-
-```text
-Command (⌘) + Space
-```
-
-Search for:
-
-```text
-Terminal
-```
-
-and open it.
-
-────────
-
-Step 3 — Install Git
+#### Step 3 — Install Git
 
 First check whether Git is already installed:
 
@@ -93,13 +121,7 @@ First check whether Git is already installed:
 git --version
 ```
 
-If you see something similar to:
-
-```text
-git version 2.x.x
-```
-
-Git is already installed. Continue to the next step.
+If you see something similar to `git version 2.x.x`, Git is already installed. Continue to the next step.
 
 If Git is not installed, run:
 
@@ -107,25 +129,15 @@ If Git is not installed, run:
 xcode-select --install
 ```
 
-A window will appear.
+A window will appear. Click **Install**.
 
-Click:
-
-```text
-Install
-```
-
-After installation is complete, close and reopen Terminal.
-
-Check again:
+After installation is complete, close and reopen Terminal. Check again:
 
 ```bash
 git --version
 ```
 
-────────
-
-Step 4 — Install Homebrew
+#### Step 4 — Install Homebrew
 
 Homebrew is a package manager that makes it easier to install command-line tools on macOS.
 
@@ -137,11 +149,7 @@ brew --version
 
 If a version number appears, skip to the next step.
 
-Otherwise, go to:
-
-[https://brew.sh](https://brew.sh)
-
-Copy the installation command shown on the website and run it in Terminal.
+Otherwise, go to [https://brew.sh](https://brew.sh), copy the installation command shown on the website, and run it in Terminal.
 
 At the time of writing, it looks like:
 
@@ -151,9 +159,7 @@ At the time of writing, it looks like:
 
 During installation, you may be asked for your Mac password.
 
-Note: when entering a password in Terminal, no characters or ***** will appear. This is normal.
-
-Important
+> **Note:** when entering a password in Terminal, no characters or `*****` will appear. This is normal.
 
 At the end of the Homebrew installation, Terminal may display:
 
@@ -161,9 +167,7 @@ At the end of the Homebrew installation, Terminal may display:
 ==> Next steps:
 ```
 
-followed by one or more commands.
-
-Copy and run the commands shown under Next steps.
+followed by one or more commands. Copy and run the commands shown under **Next steps**.
 
 Then check:
 
@@ -171,9 +175,7 @@ Then check:
 brew --version
 ```
 
-────────
-
-Step 5 — Install GitHub CLI
+#### Step 5 — Install GitHub CLI
 
 Run:
 
@@ -187,55 +189,33 @@ Then check:
 gh --version
 ```
 
-You should see something similar to:
-
-```text
-gh version 2.x.x
-```
+You should see something similar to `gh version 2.x.x`.
 
 Your macOS installation is now complete.
 
-────────
+### Windows Setup
 
-Windows Setup
+#### Step 1 — Install Cursor
 
-Step 1 — Install Cursor
+Go to [https://cursor.com/download](https://cursor.com/download).
 
-Go to:
+For most Windows computers, download **Windows x64**.
 
-[https://cursor.com/download](https://cursor.com/download)
-
-For most Windows computers, download:
-
-```text
-Windows x64
-```
-
-Run the downloaded installer and follow the instructions.
-
-Then:
+Run the downloaded installer and follow the instructions. Then:
 
 1. Open Cursor
 2. Sign in when prompted
 
-────────
+#### Step 2 — Open PowerShell
 
-Step 2 — Open PowerShell
-
-Open the Start menu and search for:
-
-```text
-PowerShell
-```
+Open the Start menu and search for **PowerShell**.
 
 You can use either:
 
-• Windows PowerShell
-• Windows Terminal
+- Windows PowerShell
+- Windows Terminal
 
-────────
-
-Step 3 — Check Windows Package Manager
+#### Step 3 — Check Windows Package Manager
 
 Run:
 
@@ -245,9 +225,7 @@ winget --version
 
 If you see a version number, continue.
 
-────────
-
-Step 4 — Install Git
+#### Step 4 — Install Git
 
 Run:
 
@@ -255,9 +233,7 @@ Run:
 winget install --id Git.Git -e --source winget
 ```
 
-Follow any prompts.
-
-When installation is complete:
+Follow any prompts. When installation is complete:
 
 1. Close PowerShell completely
 2. Open PowerShell again
@@ -268,15 +244,9 @@ Then run:
 git --version
 ```
 
-You should see something similar to:
+You should see something similar to `git version 2.x.x.windows.x`.
 
-```text
-git version 2.x.x.windows.x
-```
-
-────────
-
-Step 5 — Install GitHub CLI
+#### Step 5 — Install GitHub CLI
 
 Run:
 
@@ -295,17 +265,13 @@ Then run:
 gh --version
 ```
 
-You should see something similar to:
-
-```text
-gh version 2.x.x
-```
+You should see something similar to `gh version 2.x.x`.
 
 Your Windows installation is now complete.
 
-────────
+---
 
-1. Configure Git
+## 3. Configure Git
 
 The remaining steps are the same on macOS and Windows.
 
@@ -340,9 +306,9 @@ git config --global user.email
 
 Note that your Git name does not need to be the same as your GitHub username.
 
-────────
+---
 
-1. Connect Your Computer to GitHub
+## 4. Connect Your Computer to GitHub
 
 We will use HTTPS, rather than SSH, for this tutorial.
 
@@ -352,46 +318,18 @@ Run:
 gh auth login
 ```
 
-Follow the prompts.
+Follow the prompts. Choose:
 
-Choose:
+| Prompt | Choice |
+| --- | --- |
+| Where do you use GitHub? | **GitHub.com** |
+| What is your preferred protocol for Git operations? | **HTTPS** |
+| Authenticate Git with your GitHub credentials? | **Yes** (if asked) |
+| How would you like to authenticate? | **Login with a web browser** |
 
-```text
-Where do you use GitHub?
-→ GitHub.com
-```
+GitHub CLI will display a one-time code such as `XXXX-XXXX`. Copy the code.
 
-Then:
-
-```text
-What is your preferred protocol for Git operations?
-→ HTTPS
-```
-
-If asked:
-
-```text
-Authenticate Git with your GitHub credentials?
-→ Yes
-```
-
-Then choose:
-
-```text
-Login with a web browser
-```
-
-GitHub CLI will display a one-time code such as:
-
-```text
-XXXX-XXXX
-```
-
-Copy the code.
-
-Press Enter to open GitHub in your browser.
-
-Then:
+Press Enter to open GitHub in your browser. Then:
 
 1. Log in to GitHub if necessary
 2. Enter the one-time code
@@ -399,9 +337,7 @@ Then:
 
 Return to Terminal or PowerShell.
 
-────────
-
-Check Your Login
+### Check your login
 
 Run:
 
@@ -418,61 +354,29 @@ Git operations for github.com configured to use https protocol
 
 If you see this, your GitHub authentication is working.
 
-────────
+---
 
-1. Create Your Own Tutorial Repository
+## 5. Create Your Own Tutorial Repository
 
 For this tutorial, we will use a template repository.
 
-Open the tutorial repository in your browser.
-
-Click:
-
-```text
-Use this template
-```
-
-then:
-
-```text
-Create a new repository
-```
+Open the tutorial repository in your browser. Click **Use this template**, then **Create a new repository**.
 
 Choose your own GitHub account as the owner.
 
-Give the repository a name such as:
+Give the repository a name such as `ai-coding-tutorial-yourname`. For example: `ai-coding-tutorial-alan`.
 
-```text
-ai-coding-tutorial-yourname
-```
+You may make the repository **Private**.
 
-For example:
-
-```text
-ai-coding-tutorial-alan
-```
-
-You may make the repository Private.
-
-Click:
-
-```text
-Create repository
-```
+Click **Create repository**.
 
 You now have your own copy of the tutorial project.
 
-────────
+---
 
-1. Clone the Repository to Your Computer
+## 6. Clone the Repository to Your Computer
 
-On your new GitHub repository page, click:
-
-```text
-Code
-```
-
-and copy the HTTPS repository URL.
+On your new GitHub repository page, click **Code** and copy the HTTPS repository URL.
 
 It should look similar to:
 
@@ -480,21 +384,11 @@ It should look similar to:
 https://github.com/YOUR_USERNAME/ai-coding-tutorial-yourname.git
 ```
 
-────────
+### Choose where to store your projects
 
-Choose Where to Store Your Projects
+For example, create a folder called `AI-Tutorial` inside your Documents folder.
 
-For example, create a folder called:
-
-```text
-AI-Tutorial
-```
-
-inside your Documents folder.
-
-macOS
-
-In Terminal:
+**macOS** — in Terminal:
 
 ```bash
 cd ~/Documents
@@ -502,9 +396,7 @@ mkdir AI-Tutorial
 cd AI-Tutorial
 ```
 
-Windows
-
-In PowerShell:
+**Windows** — in PowerShell:
 
 ```powershell
 cd $HOME\Documents
@@ -512,9 +404,7 @@ mkdir AI-Tutorial
 cd AI-Tutorial
 ```
 
-────────
-
-Clone
+### Clone
 
 Run:
 
@@ -536,9 +426,7 @@ cd ai-coding-tutorial-alan
 
 The exact folder name will depend on the repository name you chose.
 
-────────
-
-Check That Git Is Working
+### Check that Git is working
 
 Run:
 
@@ -562,22 +450,13 @@ You can also run:
 git remote -v
 ```
 
-You should see your GitHub repository listed as origin.
+You should see your GitHub repository listed as `origin`.
 
-────────
+---
 
-1. Open the Project in Cursor
+## 7. Open the Project in Cursor
 
-Open Cursor.
-
-Select:
-
-```text
-File
-→ Open Folder
-```
-
-Open the folder you just cloned.
+Open Cursor. Select **File → Open Folder**, then open the folder you just cloned.
 
 You should see files similar to:
 
@@ -588,23 +467,15 @@ data.csv
 .cursor/
 ```
 
-If Cursor asks whether you trust the files in the folder, select:
+If Cursor asks whether you trust the files in the folder, select **Yes, I trust the authors**.
 
-```text
-Yes, I trust the authors
-```
+---
 
-────────
-
-1. Understand the Project with AI
-
-
+## 8. Understand the Project with AI
 
 Before asking AI to modify code, ask it to understand the project.
 
-Open the Cursor Agent/Chat panel.
-
-Enter:
+Open the Cursor Agent/Chat panel. Enter:
 
 ```text
 Inspect this repository.
@@ -623,13 +494,11 @@ Read the response.
 
 Do not blindly assume that the AI is correct. Compare its explanation with the actual files in the project.
 
-────────
+---
 
-1. Run the Existing Program
+## 9. Run the Existing Program
 
-Open Cursor’s integrated terminal.
-
-Run:
+Open Cursor’s integrated terminal. Run:
 
 ```bash
 python analysis.py
@@ -641,23 +510,19 @@ Depending on your computer, you may instead need:
 python3 analysis.py
 ```
 
-The existing program should read data.csv and report the mean score.
-
-For example:
+The existing program should read `data.csv` and report the mean score. For example:
 
 ```text
 Mean score: 78.0
 ```
 
-────────
+---
 
-1. Task 1 — Ask the AI to Modify the Code
+## 10. Task 1 — Ask the AI to Modify the Code
 
 The current program only reports the mean.
 
-Your first task is to extend it.
-
-Ask Cursor:
+Your first task is to extend it. Ask Cursor:
 
 ```text
 Modify the program so that it also reports:
@@ -673,9 +538,9 @@ After editing, run the program and verify that it works.
 
 Allow Cursor to make the changes.
 
-────────
+---
 
-1. Review the AI’s Changes
+## 11. Review the AI’s Changes
 
 AI-generated code should always be reviewed.
 
@@ -683,11 +548,11 @@ Do not automatically accept everything simply because the program runs.
 
 Check:
 
-• Which files were modified?
-• What code was added?
-• Does the change make sense?
-• Did the AI modify anything unnecessary?
-• Does the program still work?
+- Which files were modified?
+- What code was added?
+- Does the change make sense?
+- Did the AI modify anything unnecessary?
+- Does the program still work?
 
 In the terminal, run:
 
@@ -695,7 +560,7 @@ In the terminal, run:
 git status
 ```
 
-You should see that analysis.py has been modified.
+You should see that `analysis.py` has been modified.
 
 Then run:
 
@@ -726,9 +591,9 @@ Minimum score
 Maximum score
 ```
 
-────────
+---
 
-1. Save the Change with Git
+## 12. Save the Change with Git
 
 Git allows us to save a checkpoint of our work.
 
@@ -758,9 +623,9 @@ git commit -m "Add summary statistics"
 
 A commit is a named checkpoint in the history of your project.
 
-────────
+---
 
-1. Push the Change to GitHub
+## 13. Push the Change to GitHub
 
 Your commit currently exists on your computer.
 
@@ -776,27 +641,20 @@ You should now see your new commit.
 
 You have completed the basic workflow:
 
-```text
-GitHub
-   ↓
-clone
-   ↓
-local repository
-   ↓
-Cursor + AI
-   ↓
-review
-   ↓
-Git commit
-   ↓
-Git push
-   ↓
-GitHub
+```mermaid
+flowchart TD
+    A[GitHub] --> B[clone]
+    B --> C[local repository]
+    C --> D[Cursor + AI]
+    D --> E[review]
+    E --> F[Git commit]
+    F --> G[Git push]
+    G --> A
 ```
 
-────────
+---
 
-1. Task 2 — Use an Agent Skill
+## 14. Task 2 — Use an Agent Skill
 
 This repository contains an example Agent Skill.
 
@@ -809,23 +667,18 @@ Look inside:
         └── SKILL.md
 ```
 
-Open SKILL.md and read it.
+Open `SKILL.md` and read it.
 
 A Skill contains reusable instructions that tell an AI agent how to perform a particular type of task.
 
 A useful way to think about the difference is:
 
-```text
-Prompt
-= What do I want the AI to do now?
+| | |
+| --- | --- |
+| **Prompt** | What do I want the AI to do now? |
+| **Skill** | How should the AI normally perform this type of task? |
 
-Skill
-= How should the AI normally perform this type of task?
-```
-
-────────
-
-Try the Skill
+### Try the skill
 
 Ask Cursor:
 
@@ -845,13 +698,13 @@ Analyze data.csv.
 
 Think about:
 
-• Is the response more structured?
-• Did the AI follow the workflow described in the Skill?
-• Why might reusable Skills be useful in a larger project?
+- Is the response more structured?
+- Did the AI follow the workflow described in the Skill?
+- Why might reusable Skills be useful in a larger project?
 
-────────
+---
 
-1. Optional Task — Let AI Implement Its Suggestion
+## 15. Optional Task — Let AI Implement Its Suggestion
 
 If time permits, choose one useful extension suggested by the AI.
 
@@ -882,87 +735,46 @@ git commit -m "Extend data analysis"
 git push
 ```
 
-────────
+---
 
-The Workflow to Remember
+## The Workflow to Remember
 
 The purpose of this tutorial is not to memorize Git commands.
 
 The important workflow is:
 
-```text
-Understand the task
-        ↓
-Ask the AI to inspect the project
-        ↓
-Plan
-        ↓
-Edit
-        ↓
-Review the diff
-        ↓
-Run / test
-        ↓
-Commit
-        ↓
-Push
+```mermaid
+flowchart TD
+    A[Understand the task] --> B[Ask the AI to inspect the project]
+    B --> C[Plan]
+    C --> D[Edit]
+    D --> E[Review the diff]
+    E --> F[Run / test]
+    F --> G[Commit]
+    G --> H[Push]
 ```
 
 AI can help you work faster, but you remain responsible for understanding and reviewing the changes.
 
-────────
+---
 
-Quick Reference
+## Quick Reference
 
-Check installation
+| Goal | Command |
+| --- | --- |
+| Check installation | `git --version` / `gh --version` |
+| Check GitHub login | `gh auth status` |
+| Check repository status | `git status` |
+| See exactly what changed | `git diff` |
+| Save a checkpoint | `git add .` then `git commit -m "Describe your change"` |
+| Upload commits to GitHub | `git push` |
+| Get new changes from GitHub | `git pull` |
 
-```bash
-git --version
-gh --version
-```
+---
 
-Check GitHub login
+## Troubleshooting
 
-```bash
-gh auth status
-```
-
-Check repository status
-
-```bash
-git status
-```
-
-See exactly what changed
-
-```bash
-git diff
-```
-
-Save a checkpoint
-
-```bash
-git add .
-git commit -m "Describe your change"
-```
-
-Upload commits to GitHub
-
-```bash
-git push
-```
-
-Get new changes from GitHub
-
-```bash
-git pull
-```
-
-────────
-
-Troubleshooting
-
-git: command not found
+### `git: command not found`
 
 Git is not installed correctly.
 
@@ -970,9 +782,7 @@ Return to the Git installation section above.
 
 After installing Git, close and reopen Terminal or PowerShell.
 
-────────
-
-gh: command not found
+### `gh: command not found`
 
 GitHub CLI is not installed correctly.
 
@@ -980,23 +790,15 @@ Return to the GitHub CLI installation section.
 
 After installing it, close and reopen Terminal or PowerShell.
 
-────────
-
-brew: command not found on macOS
+### `brew: command not found` on macOS
 
 Homebrew may have installed successfully but may not yet be in your shell PATH.
 
-Look at the final output from the Homebrew installer and run the commands shown under:
-
-```text
-Next steps
-```
+Look at the final output from the Homebrew installer and run the commands shown under **Next steps**.
 
 Then close and reopen Terminal.
 
-────────
-
-GitHub login is not working
+### GitHub login is not working
 
 Run:
 
@@ -1004,25 +806,11 @@ Run:
 gh auth status
 ```
 
-If you are not logged in, run:
+If you are not logged in, run `gh auth login` again.
 
-```bash
-gh auth login
-```
+Choose **GitHub.com**, **HTTPS**, and **Login with a web browser**.
 
-again.
-
-Choose:
-
-```text
-GitHub.com
-HTTPS
-Login with a web browser
-```
-
-────────
-
-python: command not found
+### `python: command not found`
 
 On macOS, try:
 
@@ -1032,9 +820,7 @@ python3 analysis.py
 
 instead.
 
-────────
-
-I cannot access the course repository
+### I cannot access the course repository
 
 First try opening the repository in your web browser while logged into GitHub.
 
@@ -1042,28 +828,21 @@ If you cannot see it in your browser, this is probably a repository permission i
 
 The practice repository used in this tutorial does not require access to the main course repository.
 
-────────
+---
 
-After the Tutorial
+## After the Tutorial
 
 Once access to the main course repository is available, the same workflow applies:
 
-```text
-Get repository access
-        ↓
-clone
-        ↓
-open in Cursor
-        ↓
-inspect with AI
-        ↓
-make changes
-        ↓
-review
-        ↓
-commit
-        ↓
-push
+```mermaid
+flowchart TD
+    A[Get repository access] --> B[clone]
+    B --> C[open in Cursor]
+    C --> D[inspect with AI]
+    D --> E[make changes]
+    E --> F[review]
+    F --> G[commit]
+    G --> H[push]
 ```
 
 The tools may change over time, but this basic workflow is transferable to other AI coding environments as well.
