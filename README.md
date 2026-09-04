@@ -12,13 +12,13 @@ This tutorial introduces a basic AI-assisted coding workflow using:
 
 By the end of the tutorial, you should be able to:
 
-1. Set up Git, GitHub, and Cursor
-2. Create your own copy of a GitHub repository
-3. Clone the repository to your computer
+1. Set up Git, GitHub, Cursor, and Python
+2. Clone this repository once to a folder on your Desktop
+3. Pull updates before you start work on a later day (do not clone again)
 4. Ask Cursor to inspect and modify a project
 5. Review AI-generated changes
-6. Commit and push your changes to GitHub
-7. Use an Agent Skill
+6. Use an Agent Skill
+7. Commit and push your changes to GitHub
 
 ## Contents
 
@@ -42,20 +42,21 @@ By the end of the tutorial, you should be able to:
   - [3. Configure Git](#3-configure-git)
   - [4. Connect Your Computer to GitHub](#4-connect-your-computer-to-github)
     - [Check your login](#check-your-login)
-  - [5. Create Your Own Tutorial Repository](#5-create-your-own-tutorial-repository)
-  - [6. Clone the Repository to Your Computer](#6-clone-the-repository-to-your-computer)
-    - [Choose where to store your projects](#choose-where-to-store-your-projects)
+  - [5. Clone the Repository to Your Computer](#5-clone-the-repository-to-your-computer)
+    - [Go to your Desktop](#go-to-your-desktop)
+    - [Create a course folder](#create-a-course-folder)
     - [Clone](#clone)
     - [Check that Git is working](#check-that-git-is-working)
-  - [7. Open the Project in Cursor](#7-open-the-project-in-cursor)
-  - [8. Understand the Project with AI](#8-understand-the-project-with-ai)
-  - [9. Run the Existing Program](#9-run-the-existing-program)
+  - [6. Open the Project in Cursor](#6-open-the-project-in-cursor)
+  - [7. Understand the Project with AI](#7-understand-the-project-with-ai)
+  - [8. Run the Existing Program](#8-run-the-existing-program)
+  - [9. Always Pull Before Making Changes](#9-always-pull-before-making-changes)
   - [10. Task 1 — Ask the AI to Modify the Code](#10-task-1--ask-the-ai-to-modify-the-code)
   - [11. Review the AI’s Changes](#11-review-the-ais-changes)
   - [12. Save the Change with Git](#12-save-the-change-with-git)
-  - [13. Push the Change to GitHub](#13-push-the-change-to-github)
-  - [14. Task 2 — Use an Agent Skill](#14-task-2--use-an-agent-skill)
+  - [13. Task 2 — Use an Agent Skill](#13-task-2--use-an-agent-skill)
     - [Try the skill](#try-the-skill)
+  - [14. Push the Change to GitHub](#14-push-the-change-to-github)
   - [15. Optional Task — Let AI Implement Its Suggestion](#15-optional-task--let-ai-implement-its-suggestion)
   - [The Workflow to Remember](#the-workflow-to-remember)
   - [Quick Reference](#quick-reference)
@@ -65,7 +66,7 @@ By the end of the tutorial, you should be able to:
     - [`brew: command not found` on macOS](#brew-command-not-found-on-macos)
     - [GitHub login is not working](#github-login-is-not-working)
     - [`python: command not found`](#python-command-not-found)
-    - [I cannot access the course repository](#i-cannot-access-the-course-repository)
+    - [I cannot clone or access the repository](#i-cannot-clone-or-access-the-repository)
   - [After the Tutorial](#after-the-tutorial)
 
 ---
@@ -91,6 +92,7 @@ You will need:
 - Cursor
 - Git
 - GitHub CLI (`gh`)
+- Python 3 (to run `analysis.py`)
 
 The setup is slightly different on macOS and Windows. Follow only the section for your operating system.
 
@@ -225,6 +227,8 @@ winget --version
 
 If you see a version number, continue.
 
+If the command is not found, install **App Installer** from the Microsoft Store, then close and reopen PowerShell.
+
 #### Step 4 — Install Git
 
 Run:
@@ -356,75 +360,69 @@ If you see this, your GitHub authentication is working.
 
 ---
 
-## 5. Create Your Own Tutorial Repository
+## 5. Clone the Repository to Your Computer
 
-For this tutorial, we will use a template repository.
-
-Open the tutorial repository in your browser. Click **Use this template**, then **Create a new repository**.
-
-Choose your own GitHub account as the owner.
-
-Give the repository a name such as `ai-coding-tutorial-yourname`. For example: `ai-coding-tutorial-alan`.
-
-You may make the repository **Private**.
-
-Click **Create repository**.
-
-You now have your own copy of the tutorial project.
-
----
-
-## 6. Clone the Repository to Your Computer
-
-On your new GitHub repository page, click **Code** and copy the HTTPS repository URL.
-
-It should look similar to:
+You will download a copy of this course repository:
 
 ```text
-https://github.com/YOUR_USERNAME/ai-coding-tutorial-yourname.git
+https://github.com/IpWangHei/environmentsetup.git
 ```
 
-### Choose where to store your projects
+A convenient place to keep course files is a folder on your **Desktop**, so you can find it in Finder or File Explorer without hunting through nested directories.
 
-For example, create a folder called `AI-Tutorial` inside your Documents folder.
+### Go to your Desktop
+
+In the terminal, `cd` means “change directory.” `~` means your home folder. Desktop lives directly under that home folder, so this is a short, reliable way to get there.
 
 **macOS** — in Terminal:
 
 ```bash
-cd ~/Documents
-mkdir AI-Tutorial
-cd AI-Tutorial
+cd ~/Desktop
 ```
 
 **Windows** — in PowerShell:
 
 ```powershell
-cd $HOME\Documents
-mkdir AI-Tutorial
-cd AI-Tutorial
+cd $HOME\Desktop
 ```
+
+To confirm you are in the right place, run `pwd`. The path should end with `Desktop`.
+
+### Create a course folder
+
+Create a folder named `ECON3334` on the Desktop, then enter it.
+
+**macOS:**
+
+```bash
+mkdir ECON3334
+cd ECON3334
+```
+
+**Windows:**
+
+```powershell
+mkdir ECON3334
+cd ECON3334
+```
+
+If the folder already exists, skip `mkdir` and only run `cd ECON3334`.
+
+You should now see an `ECON3334` folder on your Desktop. Later course materials can go in the same folder.
 
 ### Clone
 
-Run:
+Still inside `ECON3334`, run:
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/IpWangHei/environmentsetup.git
 ```
 
-For example:
+This creates a folder named `environmentsetup`. Enter it:
 
 ```bash
-git clone https://github.com/alan123/ai-coding-tutorial-alan.git
+cd environmentsetup
 ```
-
-Then enter the repository:
-
-```bash
-cd ai-coding-tutorial-alan
-```
-
-The exact folder name will depend on the repository name you chose.
 
 ### Check that Git is working
 
@@ -450,13 +448,21 @@ You can also run:
 git remote -v
 ```
 
-You should see your GitHub repository listed as `origin`.
+You should see `https://github.com/IpWangHei/environmentsetup.git` listed as `origin`.
+
+You only need to clone once. After this, that folder is your local copy. To get later updates from GitHub, use `git pull`. To upload your own commits, use `git push`. Do not run `git clone` again in the same folder.
 
 ---
 
-## 7. Open the Project in Cursor
+## 6. Open the Project in Cursor
 
 Open Cursor. Select **File → Open Folder**, then open the folder you just cloned.
+
+On the Desktop, that folder is:
+
+```text
+ECON3334 / environmentsetup
+```
 
 You should see files similar to:
 
@@ -464,6 +470,7 @@ You should see files similar to:
 README.md
 analysis.py
 data.csv
+requirements.txt
 .cursor/
 ```
 
@@ -471,7 +478,7 @@ If Cursor asks whether you trust the files in the folder, select **Yes, I trust 
 
 ---
 
-## 8. Understand the Project with AI
+## 7. Understand the Project with AI
 
 Before asking AI to modify code, ask it to understand the project.
 
@@ -496,18 +503,32 @@ Do not blindly assume that the AI is correct. Compare its explanation with the a
 
 ---
 
-## 9. Run the Existing Program
+## 8. Run the Existing Program
 
-Open Cursor’s integrated terminal. Run:
+This program needs Python 3. In Cursor’s integrated terminal, check:
 
 ```bash
-python analysis.py
+python3 --version
 ```
 
-Depending on your computer, you may instead need:
+On some Windows computers, use:
+
+```powershell
+python --version
+```
+
+You should see a version such as `Python 3.x.x`. If Python is missing, install it from [https://www.python.org/downloads/](https://www.python.org/downloads/). On Windows, tick **Add python.exe to PATH** during setup, then close and reopen the terminal.
+
+Then run. On macOS, prefer `python3`. On Windows, prefer `python`.
 
 ```bash
 python3 analysis.py
+```
+
+or:
+
+```bash
+python analysis.py
 ```
 
 The existing program should read `data.csv` and report the mean score. For example:
@@ -518,7 +539,37 @@ Mean score: 78.0
 
 ---
 
+## 9. Always Pull Before Making Changes
+
+This repository is shared. The instructor may update files after you clone it.
+
+**When you return to this project on a later day, pull first** — before you edit files, and before you ask Cursor to change anything. Do not clone the repository again.
+
+In the project folder, run:
+
+```bash
+git pull
+```
+
+`git pull` downloads new commits from GitHub and updates your existing folder.
+
+After a fresh clone, this will usually print `Already up to date.` That is expected. Practise the command now so you remember it for later sessions.
+
+If there are updates, Git will apply them. Read the list of changed files so you know what is new.
+
+If `git pull` reports a conflict, stop and ask for help before continuing. Do not ask the AI to “just fix it” until you understand what overlapped.
+
+You will practise pushing later in this tutorial, after you have used an Agent Skill.
+
+---
+
 ## 10. Task 1 — Ask the AI to Modify the Code
+
+First pull, if you have not already:
+
+```bash
+git pull
+```
 
 The current program only reports the mean.
 
@@ -595,7 +646,7 @@ Maximum score
 
 ## 12. Save the Change with Git
 
-Git allows us to save a checkpoint of our work.
+Git allows us to save a checkpoint of our work on your computer.
 
 First check:
 
@@ -623,40 +674,15 @@ git commit -m "Add summary statistics"
 
 A commit is a named checkpoint in the history of your project.
 
----
-
-## 13. Push the Change to GitHub
-
-Your commit currently exists on your computer.
-
-Send it to GitHub:
-
-```bash
-git push
-```
-
-Open your repository on GitHub and refresh the page.
-
-You should now see your new commit.
-
-You have completed the basic workflow:
-
-```mermaid
-flowchart TD
-    A[GitHub] --> B[clone]
-    B --> C[local repository]
-    C --> D[Cursor + AI]
-    D --> E[review]
-    E --> F[Git commit]
-    F --> G[Git push]
-    G --> A
-```
+Leave it on your computer for now. You will push after the skill task.
 
 ---
 
-## 14. Task 2 — Use an Agent Skill
+## 13. Task 2 — Use an Agent Skill
 
-This repository contains an example Agent Skill.
+This is the more important part of the tutorial.
+
+A Skill contains reusable instructions that tell an AI agent how to perform a particular type of task. Once a skill exists in the project, you can ask Cursor to follow it instead of rewriting a long prompt every time.
 
 Look inside:
 
@@ -669,25 +695,19 @@ Look inside:
 
 Open `SKILL.md` and read it.
 
-A Skill contains reusable instructions that tell an AI agent how to perform a particular type of task.
-
 A useful way to think about the difference is:
 
-| | |
+| Term | Meaning |
 | --- | --- |
 | **Prompt** | What do I want the AI to do now? |
 | **Skill** | How should the AI normally perform this type of task? |
 
 ### Try the skill
 
-Ask Cursor:
+In the chat box, mention the skill by name. You can also explicitly call `analyze-data` skill with `/`. Then ask:
 
 ```text
 Use the analyze-data skill to inspect data.csv.
-
-Follow the skill instructions and suggest one useful extension to the current analysis.
-
-Do not modify the code yet.
 ```
 
 Compare this response with a generic request such as:
@@ -701,6 +721,39 @@ Think about:
 - Is the response more structured?
 - Did the AI follow the workflow described in the Skill?
 - Why might reusable Skills be useful in a larger project?
+
+Remark: Usually the AI will automatically apply the skill when it thinks suitable.
+
+---
+
+## 14. Push the Change to GitHub
+
+Your earlier commit currently exists only on your computer.
+
+Send it to GitHub:
+
+```bash
+git push
+```
+
+If the push succeeds, open the repository on GitHub and refresh the page. You should see your new commit.
+
+This shared course repository may reject the push if you do not have write access. That is expected. You have still learned the command. Later, when you work in a repository you own, `git push` is how you upload commits.
+
+You have now completed the basic Git workflow. **Clone only once.** After that, GitHub stays in sync with `git pull` and `git push`. Do not clone the repository again each time you work.
+
+```mermaid
+flowchart TD
+    GH[GitHub]
+    GH -->|clone once| Local[local repository]
+    Local --> Pull[git pull]
+    Pull --> Work[Cursor + AI / Skill]
+    Work --> Review[review]
+    Review --> Commit[Git commit]
+    Commit --> Push[Git push]
+    Push -->|updates| GH
+    Push -.->|next session| Pull
+```
 
 ---
 
@@ -718,14 +771,12 @@ Make the smallest reasonable change.
 Run the program after editing and verify that it works.
 ```
 
-Then repeat the workflow:
+Then review:
 
 ```bash
 git status
 git diff
 ```
-
-Review the change.
 
 If you are satisfied:
 
@@ -734,6 +785,8 @@ git add .
 git commit -m "Extend data analysis"
 git push
 ```
+
+Skip `git push` if this repository rejected it earlier.
 
 ---
 
@@ -745,16 +798,20 @@ The important workflow is:
 
 ```mermaid
 flowchart TD
-    A[Understand the task] --> B[Ask the AI to inspect the project]
-    B --> C[Plan]
-    C --> D[Edit]
-    D --> E[Review the diff]
-    E --> F[Run / test]
-    F --> G[Commit]
-    G --> H[Push]
+    A[Pull latest changes] --> B[Understand the task]
+    B --> C[Ask the AI to inspect the project]
+    C --> D[Use a Skill when one exists]
+    D --> E[Plan]
+    E --> F[Edit]
+    F --> G[Review the diff]
+    G --> H[Run / test]
+    H --> I[Commit]
+    I --> J[Push]
 ```
 
 AI can help you work faster, but you remain responsible for understanding and reviewing the changes.
+
+Clone once. Pull when you come back to the project. Prefer a Skill over a one-off prompt when the project already has one. Push after you have reviewed and committed.
 
 ---
 
@@ -762,17 +819,21 @@ AI can help you work faster, but you remain responsible for understanding and re
 
 | Goal | Command |
 | --- | --- |
+| Go to Desktop | `cd ~/Desktop` (macOS) / `cd $HOME\Desktop` (Windows) |
 | Check installation | `git --version` / `gh --version` |
 | Check GitHub login | `gh auth status` |
+| Clone this repository (once) | `git clone https://github.com/IpWangHei/environmentsetup.git` |
+| Get new changes from GitHub | `git pull` — when you return, before you make changes |
 | Check repository status | `git status` |
 | See exactly what changed | `git diff` |
-| Save a checkpoint | `git add .` then `git commit -m "Describe your change"` |
+| Save a local checkpoint | `git add .` then `git commit -m "Describe your change"` |
 | Upload commits to GitHub | `git push` |
-| Get new changes from GitHub | `git pull` |
 
 ---
 
 ## Troubleshooting
+
+You always want to ask AI for technical problems since it has access to your computer and can directly figure out the root of the problems. Be specific.
 
 ### `git: command not found`
 
@@ -812,37 +873,38 @@ Choose **GitHub.com**, **HTTPS**, and **Login with a web browser**.
 
 ### `python: command not found`
 
-On macOS, try:
+On macOS, try `python3 analysis.py`.
 
-```bash
-python3 analysis.py
-```
+On Windows, try `python analysis.py`. If that also fails, install Python from [python.org](https://www.python.org/downloads/) and tick **Add python.exe to PATH**.
 
-instead.
+### I cannot clone or access the repository
 
-### I cannot access the course repository
-
-First try opening the repository in your web browser while logged into GitHub.
+First try opening [https://github.com/IpWangHei/environmentsetup](https://github.com/IpWangHei/environmentsetup) in your web browser while logged into GitHub.
 
 If you cannot see it in your browser, this is probably a repository permission issue, not a Git or Cursor problem.
 
-The practice repository used in this tutorial does not require access to the main course repository.
+If `git clone` says the folder already exists, enter the existing `environmentsetup` folder. You do not need to clone again.
+
+If `git pull` asks you to commit or stash local changes first, you have uncommitted edits. Commit them locally, or copy your work elsewhere, before pulling.
+
+If `git push` is rejected, you probably do not have write access to this shared repository. That is expected here. Use `git push` later on a repository you own.
 
 ---
 
 ## After the Tutorial
 
-Once access to the main course repository is available, the same workflow applies:
+Later course work will use the same pattern: **clone once**. Each later session, open the project, **pull**, then work. Use Skills when they are provided.
 
 ```mermaid
 flowchart TD
-    A[Get repository access] --> B[clone]
-    B --> C[open in Cursor]
-    C --> D[inspect with AI]
-    D --> E[make changes]
-    E --> F[review]
-    F --> G[commit]
-    G --> H[push]
+    A[Clone once] --> B[Open in Cursor]
+    B --> C[Each later session: git pull]
+    C --> D[Inspect with AI / use a Skill]
+    D --> E[Make changes]
+    E --> F[Review]
+    F --> G[Commit]
+    G --> H[Push]
+    H -.->|next session| C
 ```
 
 The tools may change over time, but this basic workflow is transferable to other AI coding environments as well.
